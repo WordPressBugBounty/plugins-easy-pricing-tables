@@ -318,13 +318,13 @@ function fca_ept_render_post_list(){
 			<a href="#" id="fca-ept-modal-close"><?php esc_html_e( 'Close', 'easy-pricing-tables' )?></a>
 			<h2><?php esc_html_e( 'Choose an Option', 'easy-pricing-tables' ) ?></h2>
 			<div class="fca-ept-modal-list">
-				<a href="<?php echo $new_block_link ?>" class="fca-ept-modal-list-group" >
+				<a href="<?php echo esc_url( $new_block_link ) ?>" class="fca-ept-modal-list-group" >
 					<span class="dashicons dashicons-shortcode"></span>
 					<h3><?php esc_html_e( 'New Shortcode', 'easy-pricing-tables' ) ?></h3>
 					<p><?php esc_html_e( 'Create shortcode for use with page editors like Divi or WP Bakery.', 'easy-pricing-tables' ) ?></p>
 					<h4><?php esc_html_e( 'Recommended for Divi/WP Bakery/Visual Composer', 'easy-pricing-tables' ) ?></h4>
 				</a>
-				<a href="<?php echo $new_page_link ?>" class="fca-ept-modal-list-group" >
+				<a href="<?php echo esc_url( $new_page_link ) ?>" class="fca-ept-modal-list-group" >
 					<span class="dashicons dashicons-welcome-add-page"></span>
 					<h3><?php esc_html_e( 'New Page with Pricing Table', 'easy-pricing-tables' ) ?></h3>
 					<p><?php esc_html_e( 'Create a new blank page containing a pricing table block.', 'easy-pricing-tables' ) ?></p>

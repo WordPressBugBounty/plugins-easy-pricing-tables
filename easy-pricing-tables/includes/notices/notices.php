@@ -95,11 +95,11 @@ function fca_ept_admin_review_notice() {
 
 		echo '<div id="fca-ept-review-notice" class="notice notice-success is-dismissible" style="padding-bottom: 8px; padding-top: 8px;">';
 		
-			echo '<p>' . __( "Hi! You've been using Easy Pricing Tables Free for a while now, so who better to ask for a review than you? Would you please mind leaving us one? It really helps us a lot!", 'easy-pricing-tables' ) . '</p>';
+			echo '<p>' . esc_html__( "Hi! You've been using Easy Pricing Tables Free for a while now, so who better to ask for a review than you? Would you please mind leaving us one? It really helps us a lot!", 'easy-pricing-tables' ) . '</p>';
 			
-			echo "<a href='$review_url' class='button button-primary' style='margin-top: 2px;'>" . __( 'Leave review', 'easy-pricing-tables' ) . "</a> ";
-			echo "<a style='position: relative; top: 10px; left: 7px;' href='$postpone_url' >" . __( 'Maybe later', 'easy-pricing-tables' ) . "</a> ";
-			echo "<a style='position: relative; top: 10px; left: 16px;' href='$forever_dismiss_url' >" . __( 'No thank you', 'easy-pricing-tables' ) . "</a> ";
+			echo "<a href='" . esc_url( $review_url ) . "' class='button button-primary' style='margin-top: 2px;'>" . esc_html__( 'Leave review', 'easy-pricing-tables' ) . "</a> ";
+			echo "<a style='position: relative; top: 10px; left: 7px;' href='" . esc_url( $postpone_url ) . "' >" . esc_html__( 'Maybe later', 'easy-pricing-tables' ) . "</a> ";
+			echo "<a style='position: relative; top: 10px; left: 16px;' href='" . esc_url( $forever_dismiss_url ) . "' >" . esc_html__( 'No thank you', 'easy-pricing-tables' ) . "</a> ";
 			echo '<br style="clear:both">';
 			
 		echo '</div>';
