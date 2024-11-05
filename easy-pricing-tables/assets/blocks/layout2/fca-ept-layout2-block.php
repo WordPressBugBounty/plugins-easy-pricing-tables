@@ -42,7 +42,7 @@ function fca_ept_render_layout2( $attributes ){
 	ob_start(); 
 
 	?>
-	<div style="display:contents; font-family: <?php echo $fontFamily ?>" class='fca-ept-main' id=<?php echo 'fca-ept-table-' . $tableID ?>>
+	<div style="display:contents; font-family: <?php echo esc_attr( $fontFamily ) ?>" class='fca-ept-main' id=<?php echo 'fca-ept-table-' . $tableID ?>>
 		<?php if( function_exists( 'fca_ept_render_toggle' ) ){ 
 			echo fca_ept_render_toggle( $attributes, $toggleColor );  
 		}?>
