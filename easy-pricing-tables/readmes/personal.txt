@@ -2,9 +2,9 @@
 Contributors: davidhme, fatcatapps, ryannovotny, flippy101
 Author URI: https://fatcatapps.com/
 Plugin URI: https://fatcatapps.com/easypricingtables/
-Requires at least: 3.6
-Tested up to: 6.3
-Stable tag: 3.2.5
+Requires at least: 6.2
+Tested up to: 6.7
+Stable tag: 4.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,6 +14,10 @@ Create a Beautiful, Responsive and Highly Converting Pricing Table in Less Than 
 
 
 == Changelog ==
+
+# Version 4.0.0 #
+* Rebuilt table editor for greater customization and Gutenberg compatibility
+* Added a filter: 'fca_ept_allow_adding_blocks', default to false, set to true to enable adding any kind of blocks to a table, example: add_filter( 'fca_ept_allow_adding_blocks', '__return_true' );
 
 # Version 3.2.5 #
 * Added/Fixed PHP 8.2 compatibility

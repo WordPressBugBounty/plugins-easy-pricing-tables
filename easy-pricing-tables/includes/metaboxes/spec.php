@@ -25,8 +25,7 @@ if( DH_PTP_LICENSE_PACKAGE === 'Free' ) {
 		'template' => PTP_PLUGIN_PATH . 'includes/metaboxes/banner-metabox.php',
 		'types' => array('easy-pricing-table'),
 		'context' => 'side',
-		'priority' => 'high',
-		'skip_admin_head' => true
+		'priority' => 'high'
 	));
 
 	$tt_quick_links_metabox = new WPAlchemy_MetaBox(array
@@ -36,8 +35,7 @@ if( DH_PTP_LICENSE_PACKAGE === 'Free' ) {
 		'template' => PTP_PLUGIN_PATH . 'includes/metaboxes/quick-links-metabox.php',
 		'types' => array('easy-pricing-table'),
 		'context' => 'side',
-		'priority' => 'high',
-		'skip_admin_head' => true
+		'priority' => 'high'
 	));
 
 	$tt_review_metabox = new WPAlchemy_MetaBox(array
@@ -47,8 +45,7 @@ if( DH_PTP_LICENSE_PACKAGE === 'Free' ) {
 		'template' => PTP_PLUGIN_PATH . 'includes/metaboxes/ptp-review-metabox.php',
 		'types' => array('easy-pricing-table'),
 		'context' => 'side',
-		'priority' => 'high',
-		'skip_admin_head' => true
+		'priority' => 'high'
 	));
 
 }

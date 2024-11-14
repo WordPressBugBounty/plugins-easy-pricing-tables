@@ -94,7 +94,7 @@
 	 */
 	private function getName()
 	{
-		return substr(md5(microtime() . rand()), rand(0,25), 6);
+		return substr(md5(microtime() . wp_rand()), wp_rand(0,25), 6);
 	}
 
 	/**
@@ -304,9 +304,9 @@
 	 */
 	public function init()
 	{
-		$uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : NULL ;
+		$uri = isset($_SERVER['REQUEST_URI']) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : NULL ;
 
-		$file = basename(parse_url($uri, PHP_URL_PATH));
+		$file = basename(wp_parse_url($uri, PHP_URL_PATH));
 
 		if ($uri AND in_array($file, array('post.php', 'post-new.php')))
 		{
@@ -365,16 +365,16 @@
 							$('#TB_iframeContent').contents().find('.media-item .savesend input[type=submit], #insertonlybutton').val(label);
 						}
 
-						$('body').on('click', '[class*=<?php echo $this->button_class_name; ?>]', function()
+						$('body').on('click', '[class*=<?php echo esc_js( $this->button_class_name ) ?>]', function()
 						{
-							var name = $(this).attr('class').match(/<?php echo $this->button_class_name; ?>-([a-zA-Z0-9_-]*)/i);
+							var name = $(this).attr('class').match(/<?php echo esc_js( $this->button_class_name ) ?>-([a-zA-Z0-9_-]*)/i);
 							name = (name && name[1]) ? name[1] : '' ;
 
 							var data = $(this).attr('class').match(/({.*})/i);
 							data = (data && data[1]) ? data[1] : '' ;
 							data = eval("(" + (data.indexOf('{') < 0 ? '{' + data + '}' : data) + ")");
 
-							wpalchemy_mediafield = $('.<?php echo $this->field_class_name; ?>-' + name, $(this).closest('.postbox'));
+							wpalchemy_mediafield = $('.<?php echo esc_js( $this->field_class_name ) ?>-' + name, $(this).closest('.postbox'));
 
 							function iframeSetup()
 							{

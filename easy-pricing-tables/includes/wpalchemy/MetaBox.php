@@ -1009,7 +1009,7 @@ class WPAlchemy_MetaBox
 
         if ( isset( $uri ) )
         {
-            $uri_parts = parse_url($uri);
+            $uri_parts = wp_parse_url($uri);
 
             $file = basename($uri_parts['path']);
 
@@ -1308,9 +1308,9 @@ class WPAlchemy_MetaBox
         // todo: you're assuming people will want to use this exact functionality
         // consider giving a developer access to change this via hooks/callbacks
 		
-        wp_enqueue_style( 'wpalchemy-metabox-css', WPALCHEMY_PATH . 'metabox.min.css' );
+        wp_enqueue_style( 'wpalchemy-metabox-css', WPALCHEMY_PATH . 'metabox.min.css', array(), PTP_PLUGIN_VER );
         // include javascript for special functionality
-        wp_enqueue_script( 'wpalchemy-metabox-copy', WPALCHEMY_PATH . 'metabox-copy.min.js' );
+        wp_enqueue_script( 'wpalchemy-metabox-copy', WPALCHEMY_PATH . 'metabox-copy.min.js', array(), PTP_PLUGIN_VER, true );
     }
 
     /**

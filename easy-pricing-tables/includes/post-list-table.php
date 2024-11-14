@@ -13,9 +13,9 @@ class EPT3_List_Table extends WP_List_Table {
 
 	public function get_columns() {
 		$columns = array(
-			'title'    => _x( 'Pricing Table Name', 'Column label', 'wp-list-table-example' ),
-			'shortcode'   => _x( 'Shortcode', 'Column label', 'wp-list-table-example' ),
-			'date' => _x( 'Date', 'Column label', 'wp-list-table-example' ),
+			'title'    => _x( 'Pricing Table Name', 'Column label', 'easy-pricing-tables' ),
+			'shortcode'   => _x( 'Shortcode', 'Column label', 'easy-pricing-tables' ),
+			'date' => _x( 'Date', 'Column label', 'easy-pricing-tables' ),
 		);
 
 		return $columns;
@@ -24,7 +24,7 @@ class EPT3_List_Table extends WP_List_Table {
 	protected function column_default( $item, $column_name ) {
 		switch ( $column_name ) {
 			case 'shortcode':
-				return '<input type="text" style="width: 300px;" readonly="readonly" onclick="this.select()" value="[ept3-block id=&quot;'. $item->ID . '&quot;]"/>';
+				return "<input type='text' style='width: 300px;' readonly='readonly' onclick='this.select()' value='[easy-pricing-tables id={$item->ID}]' />";
 			case 'date':
 				$date_format = get_option( 'links_updated_date_format', 'Y/m/d \a\t g:i a' );
 				return '<span>Published</span></br>' . date_i18n( $date_format, strtotime( $item->post_date ) );
@@ -34,8 +34,6 @@ class EPT3_List_Table extends WP_List_Table {
 	}
 	
 	protected function column_title( $item ) {
-		$page = wp_unslash( $_REQUEST['page'] ); // WPCS: Input var ok.
-
 		// Build edit row action.
 		$edit_query_args = array(
 			'post'  => $item->ID,
@@ -45,7 +43,7 @@ class EPT3_List_Table extends WP_List_Table {
 		$actions['edit'] = sprintf(
 			'<a href="%1$s">%2$s</a>',
 			esc_url( add_query_arg( $edit_query_args, 'post.php' ), $item->post_title ),
-			_x( 'Edit', 'List table row action', 'wp-list-table-example' )
+			_x( 'Edit', 'List table row action', 'easy-pricing-tables' )
 		);
 		
 		$clone_query =  add_query_arg( array(
@@ -66,8 +64,7 @@ class EPT3_List_Table extends WP_List_Table {
 		$actions['trash'] = sprintf(
 			'<a class="ept-trash" href="%1$s" onclick="confirm( \'Are you sure?\' ) == false ? event.preventDefault() : null",>%2$s</a>',
 			esc_url( add_query_arg( $delete_query_args ), $item->ID ),
-			_x( 'Delete', 'List table row action', 'wp-list-table-example' ),
-			
+			_x( 'Delete', 'List table row action', 'easy-pricing-tables' )			
 		);
 		
 		// Return the title contents.

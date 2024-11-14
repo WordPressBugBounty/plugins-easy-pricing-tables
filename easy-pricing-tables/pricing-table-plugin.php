@@ -3,10 +3,12 @@
 	Plugin Name: Easy Pricing Tables: Free
 	Plugin URI: https://fatcatapps.com/easypricingtables
 	Description: Create a Beautiful, Responsive and Highly Converting Pricing Table in Less Than 5 Minutes with Easy Pricing Tables for WordPress. No Coding Required.
+	License: GPL v2
+	License URI: https://www.gnu.org/licenses/gpl-2.0.html
 	Text Domain: easy-pricing-tables
 	Domain Path: /languages
 	Author: Fatcat Apps
-	Version: 3.2.7
+	Version: 4.0.0
 	Author URI: https://fatcatapps.com
 */
 
@@ -23,12 +25,17 @@ if( !defined( 'PTP_PLUGIN_PATH' ) ){
 	define( 'PTP_DEBUG', FALSE );
 
 	if ( PTP_DEBUG ){
-		define( 'PTP_PLUGIN_VER', '3.2.' . time() );
+		define( 'PTP_PLUGIN_VER', '4.0.' . time() );
 	} else {
-		define( 'PTP_PLUGIN_VER', '3.2.7' );
+		define( 'PTP_PLUGIN_VER', '4.0.0' );
 	}
 
+	include ( PTP_PLUGIN_PATH . 'includes/v4/blocks.php' );	
 	include ( PTP_PLUGIN_PATH . 'includes/ept-block.php' );	
+	
+	if( file_exists( PTP_PLUGIN_PATH . 'includes/v4/woo.php' ) ) {
+		include ( PTP_PLUGIN_PATH . 'includes/v4/woo.php' );
+	}
 	
 	if( file_exists( PTP_PLUGIN_PATH . 'assets/pricing-tables/font-awesome/font-awesome-icons.php' ) ) {
 		include ( PTP_PLUGIN_PATH . 'assets/pricing-tables/font-awesome/font-awesome-icons.php' );
@@ -37,9 +44,11 @@ if( !defined( 'PTP_PLUGIN_PATH' ) ){
 	if( file_exists( PTP_PLUGIN_PATH . 'includes/licensing/licensing.php' ) ) {
 		include ( PTP_PLUGIN_PATH . 'includes/licensing/licensing.php' );
 	}
+	
 	if( file_exists( PTP_PLUGIN_PATH . 'includes/settings.php' ) ) {
 		include ( PTP_PLUGIN_PATH . 'includes/settings.php' );
 	}
+	
 	if( file_exists( PTP_PLUGIN_PATH . 'includes/notices/notices.php' ) ) {
 		include ( PTP_PLUGIN_PATH . 'includes/notices/notices.php' );
 	}
@@ -130,7 +139,7 @@ if( !defined( 'PTP_PLUGIN_PATH' ) ){
 			'add_new_item' => __('Add New Pricing Table', 'easy-pricing-tables'),
 			'edit_item' => __('Edit Pricing Table', 'easy-pricing-tables'), 
 			'new_item' => __('New Pricing Table', 'easy-pricing-tables'),
-			'all_items' => __('Legacy Pricing Tables', 'easy-pricing-tables'),
+			'all_items' => __('All Legacy Tables', 'easy-pricing-tables'),
 			'view_item' => __('View Pricing Table', 'easy-pricing-tables'),
 			'search_items' => __('Search Pricing Tables', 'easy-pricing-tables'),
 			'not_found' =>  __('No Pricing Tables found', 'easy-pricing-tables'),
@@ -168,11 +177,11 @@ if( !defined( 'PTP_PLUGIN_PATH' ) ){
 
 		load_textdomain( 'easy-pricing-tables', trailingslashit( WP_LANG_DIR ) . 'easy-pricing-tables' . '/' . 'easy-pricing-tables' . '-' . $locale . '.mo' );
 
-		load_plugin_textdomain( 'easy-pricing-tables', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
+		load_plugin_textdomain( 'easy-pricing-tables', false, basename( dirname( __FILE__ ) ) . '/languages/' );
 
 	}
 	
-	add_action( 'plugins_loaded', 'fca_eoi_load_localization_easy_pricing_tables' );
+	add_action( 'init', 'fca_eoi_load_localization_easy_pricing_tables' );
 	
 	// Add settings link on plugin page
 	function dh_ptp_plugin_settings_link( $links ){
@@ -199,4 +208,6 @@ if( !defined( 'PTP_PLUGIN_PATH' ) ){
 	$plugin = plugin_basename(__FILE__); 
 	add_filter("plugin_action_links_$plugin", 'dh_ptp_plugin_settings_link' );
 	
+	//GIVES ADDITIONAL GUTENBERG OPTIONS
+	add_theme_support( 'custom-spacing' );
 }

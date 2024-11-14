@@ -1,4 +1,3 @@
-
 var fca_ept_init_completed = 0
 var fca_ept_allowed_formats = [
 	'core/bold', 
@@ -61,6 +60,79 @@ function fca_ept_button_modal( props ) {
 			)
 		})
 	) : null )
+}
+
+//CUSTOM SAVE MESSAGES ON REUSABLE BLOCK EDITOR SCREEN
+function fca_ept_reusable_block_init() {
+	if ( fca_ept_init_completed == 1 ) {
+		return
+	}
+
+	var currentPost = wp.data.select( 'core/editor' ).getCurrentPost()
+
+	if( currentPost.type === 'wp_block' && currentPost.content.split( '<!--' )[1].includes( 'wp:fatcatapps/easy-pricing-table' ) ){
+
+		//MAKE "BACK" WP BUTTON GO TO OUR POST LIST INSTEAD OF RESUABLE BLOCK LIST (NOT WORKING ATM...BUTTON IS GENERATED LATER
+
+		document.body.addEventListener( 'click', function(e) {
+			var hrefLink = e.target.href || 0
+			if( hrefLink == fcaEptEditorData.edit_url + '?post_type=wp_block' ) {
+				e.target.href = fcaEptEditorData.edit_url + '?post_type=easy-pricing-table&page=ept3-list'
+			}	
+		}, true ) 
+
+		var eptBlock = wp.data.select( 'core/block-editor' ).getBlocks().filter( function( block ){
+			return block.name === 'fatcatapps/easy-pricing-tables'
+		})
+		wp.data.subscribe( function(){
+
+			// prevent block from being removed
+			var newBlockList = wp.data.select( 'core/block-editor' ).getBlocks().filter( function( block ){
+				return block.name === 'fatcatapps/easy-pricing-tables'
+			})
+
+			if ( newBlockList.length < eptBlock.length ){
+				wp.data.dispatch( 'core/block-editor' ).resetBlocks( eptBlock )
+			}
+
+			// save hook
+			var isSavingPost = wp.data.select( 'core/editor' ).isSavingPost()
+			var isAutosavingPost = wp.data.select( 'core/editor' ).isAutosavingPost()
+
+			if ( isSavingPost && !isAutosavingPost ){
+
+				var activeNotices = wp.data.select( 'core/notices' ).getNotices()
+				var result = activeNotices.filter( function( notice, i ){
+					return notice.id === 'fcaEptSuccessNotice'
+				})
+
+				if( !result.length ){
+
+					wp.data.dispatch( 'core/notices' ).createNotice(
+						'success',
+						'Pricing Table saved successfully! Your shortcode: [easy-pricing-tables id=' + wp.data.select( 'core/editor' ).getCurrentPost().id + ']',
+						{
+							id: 'fcaEptSuccessNotice',
+							isDismissible: true,
+							actions: [
+								{
+									onClick: ( function(){ window.open( 'https://fatcatapps.com/knowledge-base/how-to-create-your-first-pricing-table/', '_blank' ) } ),
+									label: 'Need help publishing your new table?',
+								},
+							],
+						}
+					)
+				}
+			}
+		})
+	}
+
+	fca_ept_init_completed = 1
+	if( fcaEptEditorData.debug ) {
+		console.log( 'fca_ept_init completed' )		
+	}
+	return fca_ept_init_completed
+
 }
 
 function fca_ept_confirm_modal( props ) {
@@ -390,78 +462,6 @@ function fca_ept_maybe_set_defaults( props ) {
 	}
 	
 	//props.setAttributes( { matchHeightsToggle: false } )
-	
-}
-//CUSTOM SAVE MESSAGES ON REUSABLE BLOCK EDITOR SCREEN
-function fca_ept_reusable_block_init() {
-	if ( fca_ept_init_completed == 1 ) {
-		return
-	}
-
-	var currentPost = wp.data.select( 'core/editor' ).getCurrentPost()
-	
-	if( currentPost.type === 'wp_block' && currentPost.content.split( '<!--' )[1].includes( 'wp:fatcatapps/easy-pricing-table' ) ){
-		
-		//MAKE "BACK" WP BUTTON GO TO OUR POST LIST INSTEAD OF RESUABLE BLOCK LIST (NOT WORKING ATM...BUTTON IS GENERATED LATER
-		
-		document.body.addEventListener( 'click', function(e) {
-			var hrefLink = e.target.href || 0
-			if( hrefLink == fcaEptEditorData.edit_url + '?post_type=wp_block' ) {
-				e.target.href = fcaEptEditorData.edit_url + '?post_type=easy-pricing-table&page=ept3-list'
-			}	
-		}, true ) 
-		
-		var eptBlock = wp.data.select( 'core/block-editor' ).getBlocks().filter( function( block ){
-			return block.name === 'fatcatapps/easy-pricing-tables'
-		})
-		wp.data.subscribe( function(){
-
-			// prevent block from being removed
-			var newBlockList = wp.data.select( 'core/block-editor' ).getBlocks().filter( function( block ){
-				return block.name === 'fatcatapps/easy-pricing-tables'
-			})
-
-			if ( newBlockList.length < eptBlock.length ){
-				wp.data.dispatch( 'core/block-editor' ).resetBlocks( eptBlock )
-			}
-
-			// save hook
-			var isSavingPost = wp.data.select( 'core/editor' ).isSavingPost()
-			var isAutosavingPost = wp.data.select( 'core/editor' ).isAutosavingPost()
-			
-			if ( isSavingPost && !isAutosavingPost ){
-
-				var activeNotices = wp.data.select( 'core/notices' ).getNotices()
-				var result = activeNotices.filter( function( notice, i ){
-					return notice.id === 'fcaEptSuccessNotice'
-				})
-
-				if( !result.length ){
-
-					wp.data.dispatch( 'core/notices' ).createNotice(
-						'success',
-						'Pricing Table saved successfully! Your shortcode: [ept3-block id="' + wp.data.select( 'core/editor' ).getCurrentPost().id + '"]',
-						{
-							id: 'fcaEptSuccessNotice',
-							isDismissible: true,
-							actions: [
-								{
-									onClick: ( function(){ window.open( 'https://fatcatapps.com/knowledge-base/how-to-create-your-first-pricing-table/', '_blank' ) } ),
-									label: 'Need help publishing your new table?',
-								},
-							],
-						}
-					)
-				}
-			}
-		})
-	}
-	
-	fca_ept_init_completed = 1
-	if( fcaEptEditorData.debug ) {
-		console.log( 'fca_ept_init completed' )		
-	}
-	return fca_ept_init_completed
 	
 }
 

@@ -66,31 +66,31 @@ function dh_ptp_metabox_styles_and_scripts() {
 	$screen = get_current_screen();
 
     if( 'easy-pricing-table' === $screen->id ) {
-		wp_enqueue_script( 'easy-palette-ept', PTP_PLUGIN_PATH_FOR_SUBDIRS . '/assets/ui/js/easy-palette.min.js' );
-		wp_enqueue_script( 'color-palettes-ept', PTP_PLUGIN_PATH_FOR_SUBDIRS . '/assets/ui/js/color-palettes.min.js' );
-		wp_enqueue_style( 'jquery-ui-fresh-ept', PTP_PLUGIN_PATH_FOR_SUBDIRS . '/assets/ui/jquery-ui-fresh.min.css' );
+		wp_enqueue_script( 'easy-palette-ept', PTP_PLUGIN_PATH_FOR_SUBDIRS . '/assets/ui/js/easy-palette.min.js', array(), PTP_PLUGIN_VER, true );
+		wp_enqueue_script( 'color-palettes-ept', PTP_PLUGIN_PATH_FOR_SUBDIRS . '/assets/ui/js/color-palettes.min.js', array(), PTP_PLUGIN_VER, true );
+		wp_enqueue_style( 'jquery-ui-fresh-ept', PTP_PLUGIN_PATH_FOR_SUBDIRS . '/assets/ui/jquery-ui-fresh.min.css', array(), PTP_PLUGIN_VER );
 		//add bootstrap js for popovers - before the UI to prevent error
-		wp_enqueue_script( 'bootstrap-popover-ept', PTP_PLUGIN_PATH_FOR_SUBDIRS . '/assets/ui/ui-components/bootstrap/js/bootstrap.min.js' );
+		wp_enqueue_script( 'bootstrap-popover-ept', PTP_PLUGIN_PATH_FOR_SUBDIRS . '/assets/ui/ui-components/bootstrap/js/bootstrap.min.js', array(), PTP_PLUGIN_VER, true );
 
 		//add jquery accordion JS & CSS
 		wp_enqueue_script('jquery-ui-accordion');
-		wp_enqueue_style('dh-ptp-jquery-ui', PTP_PLUGIN_PATH_FOR_SUBDIRS . '/assets/ui/ui-accordion.min.css');
+		wp_enqueue_style('dh-ptp-jquery-ui', PTP_PLUGIN_PATH_FOR_SUBDIRS . '/assets/ui/ui-accordion.min.css', array(), PTP_PLUGIN_VER);
 	
 		//ui scripts - this file contains all Javascript necessary for the GUI
-		wp_enqueue_script( 'ui-script-ept', PTP_PLUGIN_PATH_FOR_SUBDIRS . '/assets/ui/ui-scripts.min.js', array('jquery', 'jquery-ui-tabs', 'wp-color-picker', 'dh-ptp-colorbox') );	
+		wp_enqueue_script( 'ui-script-ept', PTP_PLUGIN_PATH_FOR_SUBDIRS . '/assets/ui/ui-scripts.min.js', array('jquery', 'jquery-ui-tabs', 'wp-color-picker', 'dh-ptp-colorbox'), PTP_PLUGIN_VER, true );	
 		//UI styles - includes all styles necessary for the UI
-		wp_enqueue_style('wpalchemy-metabox-ept', PTP_PLUGIN_PATH_FOR_SUBDIRS . '/assets/ui/ui-styles.min.css' );
+		wp_enqueue_style('wpalchemy-metabox-ept', PTP_PLUGIN_PATH_FOR_SUBDIRS . '/assets/ui/ui-styles.min.css', array(), PTP_PLUGIN_VER );
 		// Color Picker JS
 		wp_enqueue_style( 'wp-color-picker' );		
 		// Jquery UI Tabs
 		wp_enqueue_script('jquery-ui-tabs');
 		// Jquery lighbox - colorbox
-		wp_enqueue_script( 'dh-ptp-colorbox', PTP_PLUGIN_PATH_FOR_SUBDIRS . '/assets/ui/ui-components/colorbox/jquery.colorbox-min.js', array('jquery') );
+		wp_enqueue_script( 'dh-ptp-colorbox', PTP_PLUGIN_PATH_FOR_SUBDIRS . '/assets/ui/ui-components/colorbox/jquery.colorbox-min.js', array('jquery'), PTP_PLUGIN_VER, true );
 		/** UI Components **/
 		//add bootstrap css for popover help boxes
-		wp_enqueue_style('bootstrap-popover-ept', PTP_PLUGIN_PATH_FOR_SUBDIRS . '/assets/ui/ui-components/bootstrap/css/bootstrap.min.css' );
+		wp_enqueue_style('bootstrap-popover-ept', PTP_PLUGIN_PATH_FOR_SUBDIRS . '/assets/ui/ui-components/bootstrap/css/bootstrap.min.css', array(), PTP_PLUGIN_VER );
 		// fontello icons
-		wp_enqueue_style('fontello-icon-ept', PTP_PLUGIN_PATH_FOR_SUBDIRS . '/assets/ui/ui-components/fontello/fontello.min.css' );
+		wp_enqueue_style('fontello-icon-ept', PTP_PLUGIN_PATH_FOR_SUBDIRS . '/assets/ui/ui-components/fontello/fontello.min.css', array(), PTP_PLUGIN_VER );
 		
 		$codemirror = wp_enqueue_code_editor( [ 'type' => 'text/css', 'codemirror' => [ 'matchBrackets' => true, 'lineNumbers' => true, 'foldGutter' => true, 'gutters' => ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'], 'autoRefresh' => true, 'lineWrapping' => true ] ] );
 		wp_localize_script('ui-script-ept', 'code_mirror', $codemirror);

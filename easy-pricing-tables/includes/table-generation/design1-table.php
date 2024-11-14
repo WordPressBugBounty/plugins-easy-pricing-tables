@@ -282,7 +282,7 @@ function dh_ptp_generate_simple_flat_pricing_table_html ($id, $hide = false)
         }
      
 		if ( has_shortcode( $button_url, 'ept_spp' ) ) {
-			wp_enqueue_script( 'ptp-spp-checkout-js', PTP_PLUGIN_PATH_FOR_SUBDIRS . '/includes/integrations/simplepay3/ptp-simplepay-checkout.js', array( 'jquery', 'simpay-public-pro' ) );
+			wp_enqueue_script( 'ptp-spp-checkout-js', PTP_PLUGIN_PATH_FOR_SUBDIRS . '/includes/integrations/simplepay3/ptp-simplepay-checkout.js', array( 'jquery', 'simpay-public-pro' ), PTP_PLUGIN_VER, true );
 			$id = preg_replace( '/[^0-9]/', '', $button_url );
 			if ( $id ) {
 				$pricing_table_html .= '<div style="display: none;">' . do_shortcode("[simpay id='$id']") . '</div>';			

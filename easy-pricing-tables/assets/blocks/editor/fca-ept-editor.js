@@ -5,21 +5,17 @@ var $ = window.jQuery
 wp.blocks.registerBlockType( 'fatcatapps/easy-pricing-tables', {
 
 	title: 'Easy Pricing Table',
-
 	icon: 'money-alt',
-
-	category: 'common',
-	
+	category: 'common',	
 	description: '',
-
 	attributes: fca_ept_main_attributes(),
-
 	supports: { 
 		align: ( fcaEptEditorData.theme_support.block_styles || fcaEptEditorData.theme_support.wide ),
 		html: false,
 		reusable: false,
 		removable: false,
 		customClassName: false,
+		inserter: false
 	},
 
 	edit: fca_ept_main_edit,
@@ -32,18 +28,18 @@ function fca_ept_main_edit( props ){
 	if ( fcaEptEditorData.debug ) {
 		console.log( props )
 	}
+	fca_ept_reusable_block_init()
 	
 	//WAIT UNTIL RENDER??
 	window.setTimeout (function(){
 		fca_ept_handle_image_heights_toggle( props )
 	}, 50 )
-	
-	fca_ept_reusable_block_init()
+			
 	if ( props.attributes.showLayoutPickerScreen === true ){
 		return fca_ept_layout_picker_screen( props )	
 	} else {
 		return el( wp.element.Fragment, {},
-			fca_ept_toolbar_controls( props ),			
+			fca_ept_toolbar_controls( props ),	
 			fca_ept_icon_dropdown( props ),	
 			fca_ept_sidebar_settings( props ),		
 			fca_ept_tooltip_modal( props ),
@@ -62,6 +58,13 @@ function fca_ept_main_edit( props ){
 /********************/
 
 function fca_ept_layout_picker_screen( props ) {
+	
+	var selectedBlock = wp.data.select( 'core/block-editor' ).getSelectedBlock()
+	
+	//MAKE SURE OUR BLOCK IS ACTUALLY SELECTED... PREVENT ANNOYING BEHVIOR ON UNSAVED BLOCKS IN EDITOR
+	if( selectedBlock && 'fatcatapps/easy-pricing-tables' !== selectedBlock.name ) {
+		return null
+	}
 	
 	var learnMoreButton = el( wp.components.Button, {
 		variant: 'primary',

@@ -23,21 +23,22 @@ add_action( 'admin_menu', 'dh_ptp_settings_menu' );
 function dh_ptp_settings() {
 
 	$dh_ptp_show_legacy_tables = ( get_option( 'dh_ptp_show_legacy_tables') == 'no' || get_option( 'dh_ptp_show_legacy_tables') == '' ? false : 'checked' );
+	
 	?>
 	
 	<div class="wrap">
 		<form method="post" action="options.php">
 
-				<h2><?php _e('Plugin Options', 'easy-pricing-tables'); ?></h2>
+				<h2><?php esc_html_e('Plugin Options', 'easy-pricing-tables'); ?></h2>
 				<table class="form-table">
 					<tbody>
 						<tr valign="top">
 							<th scope="row" valign="top">
-								<?php _e('Compatibility mode', 'easy-pricing-tables'); ?>
+								<?php esc_html_e('Compatibility mode', 'easy-pricing-tables'); ?>
 							</th>
 							<td>
-								<input id="dh_ptp_show_legacy_tables" name="dh_ptp_show_legacy_tables" type="checkbox" value="yes" <?php echo $dh_ptp_show_legacy_tables ?>/>
-								<label for="dh_ptp_show_legacy_tables" class="description"><?php _e('Show legacy (pre-Gutenberg) pricing table builder', 'easy-pricing-tables'); ?>
+								<input id="dh_ptp_show_legacy_tables" name="dh_ptp_show_legacy_tables" type="checkbox" value="yes" <?php echo esc_attr(  $dh_ptp_show_legacy_tables ) ?>/>
+								<label for="dh_ptp_show_legacy_tables" class="description"><?php esc_html_e('Show legacy (pre-Gutenberg) pricing table builder', 'easy-pricing-tables'); ?>
 							</td>
 						</tr>
 					</tbody>
@@ -52,9 +53,6 @@ function dh_ptp_settings() {
 	</div>
 	<?php
 }
-
-do_action( 'update_option_dh_ptp_show_legacy_tables', 'dh_ptp_show_legacy_tables' );
-
 
 function dh_ptp_register_settings() {
 	// creates our settings in the options table
