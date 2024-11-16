@@ -308,7 +308,10 @@
 			}
 						
 			function blockInit() {
-							
+				if(	wp.data.select( 'core/edit-post' ).isFeatureActive( 'welcomeGuide' ) ) {
+					wp.data.dispatch( 'core/edit-post' ).toggleFeature( 'welcomeGuide' )
+				}
+				
 				var currentPost = wp.data.select( 'core/editor' ).getCurrentPost()
 				
 				if( currentPost.type === 'wp_block' ) {

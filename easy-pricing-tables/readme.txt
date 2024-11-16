@@ -6,7 +6,7 @@ Author URI: https://fatcatapps.com/?utm_campaign=author%2Buri&utm_source=https%3
 Plugin URI: https://fatcatapps.com/easypricingtables/?utm_campaign=plugin%2Buri&utm_source=https%3A%2F%2Fwordpress.org%2Fplugins%2Feasy-pricing-tables%2F&utm_medium=referral
 Requires at least: 6.2
 Tested up to: 6.7
-Stable tag: 4.0.0
+Stable tag: 4.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -132,6 +132,9 @@ Our full privacy policy is available here: [https://fatcatapps.com/legal/privacy
 12. Premium pricing table layout with inline images 
 
 == Changelog ==
+
+= Easy Pricing Tables 4.0.1 =
+* Fix table editor not loading in some cases (WordPress 6.6.2 / Welcome to Gutenberg popup)
 
 = Easy Pricing Tables 4.0.0 =
 * Rebuilt table editor for greater customization and Gutenberg compatibility
