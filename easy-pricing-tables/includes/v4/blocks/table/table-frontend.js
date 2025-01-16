@@ -22,18 +22,25 @@
 
 	function comparisonTables() {
 		var comparisonTables = document.querySelectorAll( '.wp-block-easy-pricing-tables-table.layout-8, .wp-block-easy-pricing-tables-table.layout-9' )
-
+		
+		//FOR AVADA COMPATIBILITY, DISABLE IN BUILDER
+		var avada_fusion_editor = document.querySelectorAll( '.fusion-live-editable' )
+		if( avada_fusion_editor.length > 0 ) {
+			return
+		}
+		
 		for( var i = 0; i < comparisonTables.length; i++ ) {
 			var comparisonList = comparisonTables[i].querySelectorAll( '.comparisonText li' )
 			
 			for( var j = 0; j < comparisonList.length; j++ ) {
-				var featuresTextRows = comparisonTables[i].querySelectorAll( '.featuresText:not(.comparisonText) li:nth-child('+ (j+1) +')' )
+				var featuresTextRows = comparisonTables[i].querySelectorAll( '.featuresText:not(.comparisonText) li:nth-of-type('+ (j+1) +')' )
 				featuresTextRows.forEach( function( selector ) {
 					selector.innerHTML = "<p class='comparison-mobile-text'>"+ comparisonList[j].innerHTML +":</p>" + selector.innerHTML
 				})
 			}
 			
 		}
+		
 	}
 	
 	function matchRowHeight(){

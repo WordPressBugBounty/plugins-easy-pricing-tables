@@ -41,6 +41,7 @@ function fca_ept4_gutenblock_register() {
 	wp_register_script( 'fca-ept4-frontend-js', PTP_PLUGIN_URL . '/includes/v4/blocks/table/table-frontend.min.js', [], PTP_PLUGIN_VER, true );
 	wp_register_script( 'fca-ept4-column-js', PTP_PLUGIN_URL . '/includes/v4/blocks/column/column.min.js', [], PTP_PLUGIN_VER, true );
 	wp_register_script( 'fca-ept4-list-js', PTP_PLUGIN_URL . '/includes/v4/blocks/list/list.min.js', [], PTP_PLUGIN_VER, true );
+	wp_register_script( 'fca-ept4-shortcode-js', PTP_PLUGIN_URL . '/includes/v4/blocks/shortcode/shortcode.min.js', [], PTP_PLUGIN_VER, true );
 	wp_register_script( 'fca-ept4-button-js', PTP_PLUGIN_URL . '/includes/v4/blocks/button/button.min.js', [], PTP_PLUGIN_VER, true );
 	wp_register_script( 'fca-ept4-field-js', PTP_PLUGIN_URL . '/includes/v4/blocks/field/field.min.js', [], PTP_PLUGIN_VER, true );
 	wp_register_script( 'fca-ept4-list-item-js', PTP_PLUGIN_URL . '/includes/v4/blocks/list-item/list-item.min.js', [], PTP_PLUGIN_VER, true );
@@ -52,6 +53,7 @@ function fca_ept4_gutenblock_register() {
 	register_block_type( PTP_PLUGIN_PATH . '/includes/v4/blocks/column/' );
 	register_block_type( PTP_PLUGIN_PATH . '/includes/v4/blocks/list/' );
 	register_block_type( PTP_PLUGIN_PATH . '/includes/v4/blocks/list-item/' );
+	register_block_type( PTP_PLUGIN_PATH . '/includes/v4/blocks/shortcode/', array( 'render_callback' => 'fca_ept_shortcode_render' ) );
 	register_block_type( PTP_PLUGIN_PATH . '/includes/v4/blocks/button/' );
 	register_block_type( PTP_PLUGIN_PATH . '/includes/v4/blocks/field/' );
 	
@@ -65,6 +67,10 @@ function fca_ept4_gutenblock_register() {
 	
 }
 add_action( 'init', 'fca_ept4_gutenblock_register' );
+
+function fca_ept_shortcode_render( $attributes ) {
+	return do_shortcode( $attributes['content'] );
+}
 
 function fca_ept4_block_enqueue() {
 	global $post;

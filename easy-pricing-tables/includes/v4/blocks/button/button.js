@@ -4,14 +4,14 @@
 	var useBlockProps = wp.blockEditor.useBlockProps
     var useInnerBlocksProps = wp.blockEditor.useInnerBlocksProps
 	var selectedBlock = {}
-
 	
 	blocks.registerBlockType( 'easy-pricing-tables/button', {	
 		icon: 'button',
-		edit: function( props ) {
 		
+		edit: function( props ) {
+			
 			var innerBlocksProps = useInnerBlocksProps( {}, {
-				template: [ [ 'core/shortcode', { text: props.attributes.shortcode } ] ]					
+				template: [ [ 'easy-pricing-tables/shortcode', { content: props.attributes.shortcode } ] ]					
 			})
 			
 			React.useEffect( function() {				
@@ -28,6 +28,13 @@
 				rel: 'noopener',
 				className: 'easy-pricing-tables-button-' + props.attributes.buttonID,
 				placeholder: 'Add to Cart',
+				allowedFormats: [
+					'core/bold', 
+					'core/italic',
+					'core/image', 
+					'core/strikethrough', 
+					'core/text-color' 
+				],
 				value: props.attributes.content,
 				onChange: function( newValue ){
 					props.setAttributes({
@@ -49,8 +56,7 @@
 				hoverStyle += "color:" + textHoverColor + ' !important;'
 			}
 						
-			if( props.attributes.shortcode ) {
-			
+			if( props.attributes.shortcode ) {			
 				return el( 'div', {},
 					//controls( props ),
 					advanced_controls( props ),
