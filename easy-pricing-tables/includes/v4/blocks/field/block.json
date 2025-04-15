@@ -5,7 +5,7 @@
 	"title": "Pricing Table Field",
 	"category": "widgets",
 	"textdomain": "easy-pricing-tables",
-	"parent": [ "easy-pricing-tables/field" ],
+	"parent": [ "easy-pricing-tables/column" ],
 		
 	"editorScript": "fca-ept4-field-js",
 	

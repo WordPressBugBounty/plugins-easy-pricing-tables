@@ -6,7 +6,7 @@ Author URI: https://fatcatapps.com/?utm_campaign=author%2Buri&utm_source=https%3
 Plugin URI: https://fatcatapps.com/easypricingtables/?utm_campaign=plugin%2Buri&utm_source=https%3A%2F%2Fwordpress.org%2Fplugins%2Feasy-pricing-tables%2F&utm_medium=referral
 Requires at least: 6.2
 Tested up to: 6.8
-Stable tag: 4.0.3
+Stable tag: 4.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -133,7 +133,10 @@ Our full privacy policy is available here: [https://fatcatapps.com/legal/privacy
 
 == Changelog ==
 
-# Version 4.0.3 #
+= Easy Pricing Tables 4.0.4 =
+* Fix list-item and field blocks cannot be a parent of itself
+
+= Easy Pricing Tables 4.0.3 =
 * Fix localization/translation issue with WordPress 6.8
 * Tested up to WordPress 6.8
 

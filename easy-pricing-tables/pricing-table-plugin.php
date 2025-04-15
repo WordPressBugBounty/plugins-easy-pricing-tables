@@ -8,7 +8,7 @@
 	Text Domain: easy-pricing-tables
 	Domain Path: /languages
 	Author: Fatcat Apps
-	Version: 4.0.3
+	Version: 4.0.4
 	Author URI: https://fatcatapps.com
 */
 
@@ -27,7 +27,7 @@ if( !defined( 'PTP_PLUGIN_PATH' ) ){
 	if ( PTP_DEBUG ){
 		define( 'PTP_PLUGIN_VER', '4.0.' . time() );
 	} else {
-		define( 'PTP_PLUGIN_VER', '4.0.3' );
+		define( 'PTP_PLUGIN_VER', '4.0.4' );
 	}
 
 	include ( PTP_PLUGIN_PATH . 'includes/v4/blocks.php' );	

@@ -5,7 +5,7 @@
 	"title": "Pricing Table List Item",
 	"category": "widgets",
 	"textdomain": "easy-pricing-tables",
-	"parent": [ "easy-pricing-tables/list-item" ],
+	"parent": [ "easy-pricing-tables/list" ],
 	
 	"description": "Enter a new line using shift + enter",
 	"editorScript": "fca-ept4-list-item-js",
