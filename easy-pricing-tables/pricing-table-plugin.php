@@ -8,7 +8,7 @@
 	Text Domain: easy-pricing-tables
 	Domain Path: /languages
 	Author: Fatcat Apps
-	Version: 4.0.2
+	Version: 4.0.3
 	Author URI: https://fatcatapps.com
 */
 
@@ -27,7 +27,7 @@ if( !defined( 'PTP_PLUGIN_PATH' ) ){
 	if ( PTP_DEBUG ){
 		define( 'PTP_PLUGIN_VER', '4.0.' . time() );
 	} else {
-		define( 'PTP_PLUGIN_VER', '4.0.2' );
+		define( 'PTP_PLUGIN_VER', '4.0.3' );
 	}
 
 	include ( PTP_PLUGIN_PATH . 'includes/v4/blocks.php' );	
@@ -169,19 +169,6 @@ if( !defined( 'PTP_PLUGIN_PATH' ) ){
 
 	}
 	add_action( 'init', 'dh_ptp_register_pricing_table_post_type' );
-	
-	// Localization
-	function fca_eoi_load_localization_easy_pricing_tables(){
-
-		$locale = apply_filters( 'plugin_locale', get_locale(), 'easy-pricing-tables' );
-
-		load_textdomain( 'easy-pricing-tables', trailingslashit( WP_LANG_DIR ) . 'easy-pricing-tables' . '/' . 'easy-pricing-tables' . '-' . $locale . '.mo' );
-
-		load_plugin_textdomain( 'easy-pricing-tables', false, basename( dirname( __FILE__ ) ) . '/languages/' );
-
-	}
-	
-	add_action( 'init', 'fca_eoi_load_localization_easy_pricing_tables' );
 	
 	// Add settings link on plugin page
 	function dh_ptp_plugin_settings_link( $links ){

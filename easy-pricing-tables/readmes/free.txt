@@ -133,6 +133,11 @@ Our full privacy policy is available here: [https://fatcatapps.com/legal/privacy
 
 == Changelog ==
 
+= Easy Pricing Tables 4.0.2 =
+* Added custom shortcode block to allow shortcodes within block patterns
+* Removed adding inlne links to button - use side panel field instead to preserve design
+* Fix conflict with Astra theme causing replicated comparison fields
+
 = Easy Pricing Tables 4.0.1 =
 * Fix table editor not loading in some cases (WordPress 6.6.2 / Welcome to Gutenberg popup)
 

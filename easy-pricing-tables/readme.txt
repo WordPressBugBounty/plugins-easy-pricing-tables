@@ -1,12 +1,12 @@
-=== Pricing Tables WordPress Plugin - Easy Pricing Tables ===
+=== Pricing Table WordPress Plugin - Easy Pricing Tables ===
 Contributors: davidhme, fatcatapps, ryannovotny, flippy101
 Donate link: https://fatcatapps.com/easypricingtables/?utm_campaign=donate%2Blink&utm_source=https%3A%2F%2Fwordpress.org%2Fplugins%2Feasy-pricing-tables%2F&utm_medium=referral
 Tags: pricing table,  pricing tables, comparison table, pricing grid, price comparison table
 Author URI: https://fatcatapps.com/?utm_campaign=author%2Buri&utm_source=https%3A%2F%2Fwordpress.org%2Fplugins%2Feasy-pricing-tables%2F&utm_medium=referral
 Plugin URI: https://fatcatapps.com/easypricingtables/?utm_campaign=plugin%2Buri&utm_source=https%3A%2F%2Fwordpress.org%2Fplugins%2Feasy-pricing-tables%2F&utm_medium=referral
 Requires at least: 6.2
-Tested up to: 6.7
-Stable tag: 4.0.2
+Tested up to: 6.8
+Stable tag: 4.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -132,6 +132,15 @@ Our full privacy policy is available here: [https://fatcatapps.com/legal/privacy
 12. Premium pricing table layout with inline images 
 
 == Changelog ==
+
+# Version 4.0.3 #
+* Fix localization/translation issue with WordPress 6.8
+* Tested up to WordPress 6.8
+
+= Easy Pricing Tables 4.0.2 =
+* Added custom shortcode block to allow shortcodes within block patterns
+* Removed adding inlne links to button - use side panel field instead to preserve design
+* Fix conflict with Astra theme causing replicated comparison fields
 
 = Easy Pricing Tables 4.0.1 =
 * Fix table editor not loading in some cases (WordPress 6.6.2 / Welcome to Gutenberg popup)

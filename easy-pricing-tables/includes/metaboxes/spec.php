@@ -7,7 +7,7 @@
 $features_metabox = new WPAlchemy_MetaBox(array
 (
     'id' => '1_dh_ptp_settings',
-    'title' => __('Pricing Table Settings', 'easy-pricing-tables'),
+    'title' => 'Pricing Table Settings',
     'template' => PTP_PLUGIN_PATH . 'includes/metaboxes/features-metabox.php',
     'types' => array('easy-pricing-table', 'us_footer' ),
     'autosave' => TRUE,
@@ -21,7 +21,7 @@ if( DH_PTP_LICENSE_PACKAGE === 'Free' ) {
 	$banner_metabox = new WPAlchemy_MetaBox(array
 	(
 		'id' => 'dh_ptp_banner',
-		'title' => __('Wanna Get More Sales?', 'easy-pricing-tables'),
+		'title' => 'Wanna Get More Sales?',
 		'template' => PTP_PLUGIN_PATH . 'includes/metaboxes/banner-metabox.php',
 		'types' => array('easy-pricing-table'),
 		'context' => 'side',
@@ -31,7 +31,7 @@ if( DH_PTP_LICENSE_PACKAGE === 'Free' ) {
 	$tt_quick_links_metabox = new WPAlchemy_MetaBox(array
 	(
 		'id' => 'dh_ptp_banner_quick_link',
-		'title' => __('Quick Links', 'easy-pricing-tables'),
+		'title' => 'Quick Links',
 		'template' => PTP_PLUGIN_PATH . 'includes/metaboxes/quick-links-metabox.php',
 		'types' => array('easy-pricing-table'),
 		'context' => 'side',
@@ -41,7 +41,7 @@ if( DH_PTP_LICENSE_PACKAGE === 'Free' ) {
 	$tt_review_metabox = new WPAlchemy_MetaBox(array
 	(
 		'id' => 'dh_ptp_banner_review_box',
-		'title' => __('Like this plugin?', 'easy-pricing-tables'),
+		'title' => 'Like this plugin?',
 		'template' => PTP_PLUGIN_PATH . 'includes/metaboxes/ptp-review-metabox.php',
 		'types' => array('easy-pricing-table'),
 		'context' => 'side',
