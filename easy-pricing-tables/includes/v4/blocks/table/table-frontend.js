@@ -21,7 +21,7 @@
 	
 
 	function comparisonTables() {
-		var comparisonTables = document.querySelectorAll( '.wp-block-easy-pricing-tables-table.layout-8, .wp-block-easy-pricing-tables-table.layout-9' )
+		var comparisonTables = document.querySelectorAll( '.wp-block-easy-pricing-tables-table.layout-8, .wp-block-easy-pricing-tables-table.layout-9, .wp-block-easy-pricing-tables-table.layout-12' )
 		
 		//FOR AVADA COMPATIBILITY, DISABLE IN BUILDER
 		var avada_fusion_editor = document.querySelectorAll( '.fusion-live-editable' )
@@ -45,11 +45,13 @@
 	
 	function matchRowHeight(){
 		var tables = document.querySelectorAll( '.wp-block-easy-pricing-tables-table.matchRowHeight' )
+		var isMobile = window.screen.width < 781
 		
 		for( var j = 0; j < tables.length; j++ ) {
 			tables[j].style.visibility = "hidden"
 			var elementsToMatch = [ '.planText', '.planSubText', '.priceText', '.pricePeriod', '.periodText', '.billingText' ]
 			var isTemplate9 = tables[j].querySelectorAll( '.ept4Template-9' ).length > 0
+			var isTemplate12 = tables[j].querySelectorAll( '.ept4Template-12' ).length > 0
 			
 			elementsToMatch.forEach( function( selector ) {
 				
@@ -65,8 +67,10 @@
 				}
 				
 				//SET DIV CSS
-				for( var i = 0; i < divs.length; i++ ) {				
-					divs[i].style.minHeight = minDivHeight + 'px'
+				if( !isMobile ) {	
+					for( var i = 0; i < divs.length; i++ ) {				
+						divs[i].style.minHeight = minDivHeight + 'px'
+					}
 				}
 			})
 			
@@ -85,8 +89,10 @@
 				}
 				
 				//SET DIV CSS
-				for( var i = 0; i < imgDivs.length; i++ ) {				
-					imgDivs[i].style.maxHeight = maxDivHeight + 'px'
+				if( !isMobile ) {
+					for( var i = 0; i < imgDivs.length; i++ ) {				
+						imgDivs[i].style.maxHeight = maxDivHeight + 'px'
+					}
 				}
 			}
 			
@@ -103,7 +109,28 @@
 					}
 				})
 				
-				spacerBlock.style.minHeight = ( minHeight - 1 ) + 'px'
+				if ( !isMobile ) {
+					spacerBlock.style.minHeight = ( minHeight - 1 ) + 'px'					
+				}
+			}
+			
+			if( isTemplate12 ) {
+				var spacerBlock =  tables[j].querySelector( '.comparisonSpacer' )
+				spacerBlock.style.minHeight = 0
+				var columns = tables[j].querySelectorAll( '.ept4Template-12' )
+				var firstFeaturesDiv = columns[1]
+				var elementsToCheck = [ '.planText', '.planImage', '.priceText', '.periodText' ]
+				
+				var minHeight = parseInt( firstFeaturesDiv.style.paddingTop )
+				elementsToCheck.forEach( function( selector ) {
+					if( firstFeaturesDiv.querySelector( selector ) ) {
+						minHeight += firstFeaturesDiv.querySelector( selector ).offsetHeight
+					}
+				})
+				
+				if ( !isMobile ) {
+					spacerBlock.style.minHeight = ( minHeight + 1 ) + 'px'					
+				}
 			}
 			
 			//RESET HEIGHTS
@@ -134,8 +161,10 @@
 				
 				
 				//SET DIV CSS
-				for(  var z = 0; z < ThislistItemRow.length; z++ ) {				
-					 ThislistItemRow[z].style.minHeight = itemMinHeight + 'px'
+				if( !isMobile ) {					
+					for(  var z = 0; z < ThislistItemRow.length; z++ ) {				
+						 ThislistItemRow[z].style.minHeight = itemMinHeight + 'px'
+					}
 				}
 			}
 			
@@ -148,9 +177,11 @@
 			})
 			
 			//SET LIST DIV CSS
-			featuresTextLists.forEach( function( currentList ) {		
-				currentList.style.minHeight = listMinHeight + 'px'
-			})
+			if( !isMobile ) {	
+				featuresTextLists.forEach( function( currentList ) {		
+					currentList.style.minHeight = listMinHeight + 'px'
+				})
+			}
 			
 			tables[j].style.visibility = "visible"
 			

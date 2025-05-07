@@ -495,7 +495,7 @@
 									}
 								}
 								},					
-									fcaEpt4Icons.template3(),
+									fcaEpt4Icons.template5(),
 									learnMoreButton									
 							),	
 							el( 'div', {
@@ -508,7 +508,7 @@
 									}
 								}
 								},					
-									fcaEpt4Icons.template4(),
+									fcaEpt4Icons.template6(),
 									learnMoreButton									
 							),	
 							el( 'div', {
@@ -521,7 +521,7 @@
 									}
 								}
 								},					
-									fcaEpt4Icons.template5(),
+									fcaEpt4Icons.template8(),
 									learnMoreButton									
 							),
 							el( 'div', {
@@ -534,7 +534,7 @@
 									}
 								}
 								},					
-									fcaEpt4Icons.template6(),
+									fcaEpt4Icons.template4(),
 									learnMoreButton
 							),
 							el( 'div', {
@@ -560,7 +560,7 @@
 									}
 								}
 								},
-									fcaEpt4Icons.template8(),
+									fcaEpt4Icons.template3(),
 									learnMoreButton
 							),
 							el( 'div', {
@@ -575,7 +575,48 @@
 								},					
 									fcaEpt4Icons.template9(),
 									learnMoreButton
-							)					
+							),
+							
+							el( 'div', {
+								className: fcaEpt4EditorData.edition === 'Free' ? 'template pro-only' : 'template',
+								onClick: function(){
+									if ( fcaEpt4EditorData.edition === 'Free' ) {
+										window.open( 'https://fatcatapps.com/easypricingtables/', '_blank' )
+									} else {
+										loadTemplate( 10, props )
+									}
+								}
+								},					
+									fcaEpt4Icons.template10(),
+									learnMoreButton
+							),
+							
+							el( 'div', {
+								className: fcaEpt4EditorData.edition === 'Free' ? 'template pro-only' : 'template',
+								onClick: function(){
+									if ( fcaEpt4EditorData.edition === 'Free' ) {
+										window.open( 'https://fatcatapps.com/easypricingtables/', '_blank' )
+									} else {
+										loadTemplate( 11, props )
+									}
+								}
+								},					
+									fcaEpt4Icons.template11(),
+									learnMoreButton
+							),
+							el( 'div', {
+								className: fcaEpt4EditorData.edition === 'Free' ? 'template pro-only' : 'template',
+								onClick: function(){
+									if ( fcaEpt4EditorData.edition === 'Free' ) {
+										window.open( 'https://fatcatapps.com/easypricingtables/', '_blank' )
+									} else {
+										loadTemplate( 12, props )
+									}
+								}
+								},					
+									fcaEpt4Icons.template12(),
+									learnMoreButton
+							)		
 						) // end inner div
 					) //end div
 				) // end modal

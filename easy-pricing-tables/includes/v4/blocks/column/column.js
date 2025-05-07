@@ -84,7 +84,7 @@
 	
 	function controls ( props ) {
 		var templateID = getTemplateID( props )
-		var templateHasFeaturedStyle = ( [ 1, 2, 5, 6 ].indexOf( templateID ) !== -1 )
+		var templateHasFeaturedStyle = ( [ 1, 2, 5, 6, 10, 12 ].indexOf( templateID ) !== -1 )
 		
 		var colorPanels = [{
 			"label": "Background Color",
@@ -158,7 +158,7 @@
 					onChange: function() {
 						var newValue = !props.attributes.columnPopular
 						var templateID = getTemplateID( props )
-						var templateHasBorder = ( [ 2, 6 ].indexOf( templateID ) !== -1 )
+						var templateHasBorder = ( [ 2, 6, 12 ].indexOf( templateID ) !== -1 )
 						props.setAttributes( { columnPopular: newValue } )
 						if( newValue && templateHasBorder ) {
 							var borderColor = "#333333"
@@ -166,6 +166,10 @@
 								
 								case 2:
 									borderColor = "#6236FF"
+									break
+									
+								case 12:
+									borderColor = "#6366f1"
 									break
 								
 								default:

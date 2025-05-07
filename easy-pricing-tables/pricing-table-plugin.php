@@ -8,7 +8,7 @@
 	Text Domain: easy-pricing-tables
 	Domain Path: /languages
 	Author: Fatcat Apps
-	Version: 4.0.4
+	Version: 4.1.0
 	Author URI: https://fatcatapps.com
 */
 
@@ -25,9 +25,9 @@ if( !defined( 'PTP_PLUGIN_PATH' ) ){
 	define( 'PTP_DEBUG', FALSE );
 
 	if ( PTP_DEBUG ){
-		define( 'PTP_PLUGIN_VER', '4.0.' . time() );
+		define( 'PTP_PLUGIN_VER', '4.1.' . time() );
 	} else {
-		define( 'PTP_PLUGIN_VER', '4.0.4' );
+		define( 'PTP_PLUGIN_VER', '4.1.0' );
 	}
 
 	include ( PTP_PLUGIN_PATH . 'includes/v4/blocks.php' );	
@@ -169,7 +169,7 @@ if( !defined( 'PTP_PLUGIN_PATH' ) ){
 
 	}
 	add_action( 'init', 'dh_ptp_register_pricing_table_post_type' );
-	
+  
 	// Add settings link on plugin page
 	function dh_ptp_plugin_settings_link( $links ){
 		// Remove Edit link

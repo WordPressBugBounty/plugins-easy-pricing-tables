@@ -20,6 +20,9 @@ function fca_ept4_gutenblock_register() {
 		wp_register_script( 'fca-ept4-template-7', PTP_PLUGIN_URL . '/includes/v4/templates/template-7.js', [], PTP_PLUGIN_VER, true );
 		wp_register_script( 'fca-ept4-template-8', PTP_PLUGIN_URL . '/includes/v4/templates/template-8.js', [], PTP_PLUGIN_VER, true );
 		wp_register_script( 'fca-ept4-template-9', PTP_PLUGIN_URL . '/includes/v4/templates/template-9.js', [], PTP_PLUGIN_VER, true );
+		wp_register_script( 'fca-ept4-template-10', PTP_PLUGIN_URL . '/includes/v4/templates/template-10.js', [], PTP_PLUGIN_VER, true );
+		wp_register_script( 'fca-ept4-template-11', PTP_PLUGIN_URL . '/includes/v4/templates/template-11.js', [], PTP_PLUGIN_VER, true );
+		wp_register_script( 'fca-ept4-template-12', PTP_PLUGIN_URL . '/includes/v4/templates/template-12.js', [], PTP_PLUGIN_VER, true );
 		wp_register_script( 'fca-ept4-toolbar-js', PTP_PLUGIN_URL . '/includes/v4/toolbar.min.js', [], PTP_PLUGIN_VER, true );
 		
 		$main_script_requires = [
@@ -32,6 +35,9 @@ function fca_ept4_gutenblock_register() {
 			'fca-ept4-template-7',
 			'fca-ept4-template-8',
 			'fca-ept4-template-9',
+			'fca-ept4-template-10',
+			'fca-ept4-template-11',
+			'fca-ept4-template-12',
 			'fca-ept4-toolbar-js',
 			'fca-ept4-icons-js',
 		];

@@ -80,7 +80,8 @@ class EPT3_List_Table extends WP_List_Table {
 		if ( 'trash' === $this->current_action() ) {
 			$postID = empty( $_GET['post'] ) ? '' : intval( $_GET['post'] );
 			$nonce = empty( $_GET['ept_nonce'] ) ? '' : sanitize_text_field( $_GET['ept_nonce'] );
-			if( wp_verify_nonce( $nonce, 'ept_delete' ) && $postID ){
+			$is_ptp = get_post_meta( $postID, '1_dh_ptp_settings', true );
+			if( wp_verify_nonce( $nonce, 'ept_delete' ) && $is_ptp && current_user_can('edit_post', $postID) ){
 				wp_delete_post( $postID );
 			} else {
 				wp_die( 'Not authorized, please try logging in again' );
@@ -90,7 +91,8 @@ class EPT3_List_Table extends WP_List_Table {
 		if ( 'clone' === $this->current_action() ) {
 			$postID = empty( $_GET['post'] ) ? '' : intval( $_GET['post'] );
 			$nonce = empty( $_GET['ept_nonce'] ) ? '' : sanitize_text_field( $_GET['ept_nonce'] );
-			if( wp_verify_nonce( $nonce, 'ept_clone' ) && $postID ){
+			$is_ptp = get_post_meta( $postID, '1_dh_ptp_settings', true );
+			if( wp_verify_nonce( $nonce, 'ept_clone' ) && $is_ptp && current_user_can('edit_post', $postID) ){
 				fca_ept_clone_table( $postID );
 			} else {
 				wp_die( 'Not authorized, please try logging in again' );

@@ -37,7 +37,7 @@
 
 div.fca-ept-template-selection .template-container {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
 	margin: 0 auto;
 }
 
@@ -54,7 +54,7 @@ div.fca-ept-template-selection .template-container .template {
 }
 
 div.fca-ept-template-selection .template-container .template img{
-	max-width: 300px;
+	max-width: 250px;
 	height: auto;
 }
 
@@ -90,5 +90,9 @@ div.fca-ept-template-selection .template-container .template button{
 
 div.fca-ept-template-selection .template-container .template.pro-only:hover button {
 	display: block;
+}
+
+.fca-ept-fa-icons .components-form-token-field__suggestions-list{
+	max-height: 384px;
 }
 

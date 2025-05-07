@@ -4,7 +4,7 @@ Author URI: https://fatcatapps.com/
 Plugin URI: https://fatcatapps.com/easypricingtables/
 Requires at least: 6.2
 Tested up to: 6.8
-Stable tag: 4.0.4
+Stable tag: 4.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,6 +14,11 @@ Create a Beautiful, Responsive and Highly Converting Pricing Table in Less Than 
 
 
 == Changelog ==
+
+# Version 4.1.0 #
+* Added 3 new table designs
+* Added ability to edit existing tooltips
+* Improvements to mobile
 
 # Version 4.0.4 #
 * Fix list-item and field blocks cannot be a parent of itself
