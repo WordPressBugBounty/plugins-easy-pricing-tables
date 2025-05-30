@@ -313,7 +313,7 @@ function fca_ept_block_enqueue() {
 	));
 	
 }
-add_action( 'enqueue_block_editor_assets', 'fca_ept_block_enqueue' );
+add_action( 'enqueue_block_assets', 'fca_ept_block_enqueue' );
 
 // ADD OUR MENU, MAYBE REMOVE LEGACY WP ADMIN MENU ITEMS
 function fca_ept_admin_menu() {

@@ -148,7 +148,7 @@ function dh_ptp_gutenblock_enqueue() {
 	wp_localize_script( 'dh_ptp_gutenblock_script', 'dh_ptp_gutenblock_script_data', array( 'tables' => $table_list, 'editurl' => admin_url( 'post.php' ), 'newurl' => admin_url( 'post-new.php' )  ) );
 	
 }
-add_action( 'enqueue_block_editor_assets', 'dh_ptp_gutenblock_enqueue' );
+add_action( 'enqueue_block_assets', 'dh_ptp_gutenblock_enqueue' );
 
 function dh_ptp_selected_layout( $post_id ) {
 

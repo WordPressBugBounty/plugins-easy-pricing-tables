@@ -120,7 +120,7 @@ function fca_ept4_block_enqueue() {
 		wp_enqueue_style( 'fca-ept-font-awesome' );		
 	}	
 }
-add_action( 'enqueue_block_editor_assets', 'fca_ept4_block_enqueue' );
+add_action( 'enqueue_block_assets', 'fca_ept4_block_enqueue' );
 add_action( 'wp_enqueue_scripts', 'fca_ept4_block_enqueue' );
 
 function fca_ept4_is_plugin_active( $plugin ) {

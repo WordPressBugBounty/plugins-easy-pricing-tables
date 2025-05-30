@@ -4,7 +4,7 @@ Author URI: https://fatcatapps.com/
 Plugin URI: https://fatcatapps.com/easypricingtables/
 Requires at least: 6.2
 Tested up to: 6.8
-Stable tag: 4.1.0
+Stable tag: 4.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,6 +14,9 @@ Create a Beautiful, Responsive and Highly Converting Pricing Table in Less Than 
 
 
 == Changelog ==
+
+# Version 4.1.1 #
+* Fix FontAwesome not loading in iFrame
 
 # Version 4.1.0 #
 * Added 3 new table designs
